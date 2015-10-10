@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Gallows-Tree</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="style/headers.css" rel="stylesheet" type="text/css"/>
+        <link href="style/drawer.css" rel="stylesheet" type="text/css"/>
+        <link href="style/buttons.css" rel="stylesheet" type="text/css"/>
+        <link href="style/input_areas.css" rel="stylesheet" type="text/css"/>
+        <link href="style/confirm.css" rel="stylesheet" type="text/css"/>
+        <style>
+            html{
+                font-size: xx-small;
+                color: #fff;
+                font-family: sans-serif;
+            }
+            div{
+                font-size: small;
+                font-family: sans-serif;
+            }
+            html, body {
+                margin: 0;
+                padding: 0;
+                font-size: 10px;
+                background-color: #fff;
+                height: 100%;
+                overflow-x: hidden;
+            }
+            td{
+                width: 15%;
+            }
+            h2.bb-docs {
+                font-size: 1.8rem;
+                font-weight: 300;
+                color: #666;
+                margin: -0.1rem 0 0;
+                background-color: #f5f5f5;
+                padding: 0.4rem 0.4rem 0.4rem 3rem;
+                border: solid 0.1rem #e8e8e8;
+            }
+
+            section[role="region"] {
+                height: 100%;
+                line-height: 1em;
+                font-size: 2.2rem;
+            }
+
+            div[role="main"] {
+                background: #fff;
+                height: calc(100% - 5rem);
+                overflow: hidden;
+            }
+
+            div[role="main"] p {
+                margin: 2rem 2.5rem;
+            }
+
+            /* Base icons */
+            section[data-type="sidebar"] > header .icon.icon-add {
+                background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo4RTlFMTExOTIwMjA2ODExODIyQUJFQTc4MUU4NEEyOSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpENjM1MzgyMUJGNzAxMUUxQkNDOEUwRkExQ0U5N0Q0QiIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpENjM1MzgyMEJGNzAxMUUxQkNDOEUwRkExQ0U5N0Q0QiIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChNYWNpbnRvc2gpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6Mzk0RjYxOUMzMTIwNjgxMTgyMkFBRjgxQ0IyNTAxM0UiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6OEU5RTExMTkyMDIwNjgxMTgyMkFCRUE3ODFFODRBMjkiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz45ZU6fAAAAiklEQVR42mL8//8/w0AAJoYBAqMW0w2wkKmPH4hVoOw7QPyRVAMYyUzVD4FYDsq+DMR6o3E8avGoxbiykxAQ78KjTxeI2aDs70B8DY9aZ2z5HJfFIIMvUclzGkB8c9AXmU+B+CyVgvrFaJE5avGoxQNSZBICzEBsAGVfAOK/9LJ4NI5HLSYIAAIMAKfZJ7+0GO5HAAAAAElFTkSuQmCC);
+            }
+        </style>
+    </head>
+    <body role="application" onload="continueGame()">
+        <section data-type="sidebar">
+            <header>
+                <menu type="toolbar">
+                    <a href="#content"><span class="icon icon-add">add</span></a>
+                </menu>
+                <h1>Menu</h1>
+            </header>
+            <nav>
+                <h2>Game</h2>
+                <ul>
+                    <li><a href="NewGame.html">New Game</a></li>
+                    <li><a href="ContinueGame.html">Continue Game</a></li>
+                    <li><a href="index.html">Exit to Menu</a></li>
+                </ul>
+                <h2>Settings</h2>
+                <ul>
+                    <li>
+                        <div align="center">
+                            <select id="diffSelect" onChange="diffSelect();" style="background-color: #e8e8e8;width:95%">
+                                <option value="3">Easy</option>
+                                <option value="2">Medium</option>
+                                <option value="1">Hard</option>
+                                <option value="0">Impossible</option>
+                            </select>
+                        </div>
+                    </li>
+                </ul>
+                <h2>About</h2>
+                <ul>
+                    <li><a href="#" onclick="alert('Name:\nTeudán Richárd\nE-mail:\nteudan.richard@gmail.com')">About Me</a></li>
+                </ul>
+            </nav>
+        </section>
+        <section id="drawer" role="region">
+            <header style="background-image: url('style/drawer/images/ui/pattern.png');">
+                <a href="#content"><span class="icon icon-menu">hide sidebar</span></a>
+                <a href="#drawer"><span class="icon icon-menu">show sidebar</span></a>
+                <menu type="toolbar">
+                    <a href="#" onclick="minusScore();
+                            ujSzo();" style="color: #fff;">New</a>
+                </menu>
+                <h1 style="font-size: 14px;" id="szo-kitalalando">Unknow error.</h1>                    
+            </header>
+            <div role="main" style="background-image: url('images/black-background.png');">
+                <table width="100%">
+                    <tr>
+                        <td style="width:50%;" align="left">
+                            <img id="image" width="170" height="170" alt=""/>
+                        </td>                        
+                        <td  style="width:50%;" valign="top" align="center">
+                            <div style="margin-bottom: 5px;border-style: solid;border-color: #e8e8e8;border-width: 1px;">
+                                <div id="pontszam">score: 0</div>
+                                <div id="difficult"></div>
+                                <div id="error"></div>
+                            </div>
+                        </td>
+
+                    </tr>
+                </table>
+                <center>
+                    <table width="90%">
+                        <tr>
+                            <td><button id="a" type="button" onclick="checkChar('a')">a</button></td>
+                            <td><button id="b" type="button" onclick="checkChar('b')">b</button></td>
+                            <td><button id="c" type="button" onclick="checkChar('c')">c</button></td>
+                            <td><button id="d" type="button" onclick="checkChar('d')">d</button></td>
+                            <td><button id="e" type="button" onclick="checkChar('e')">e</button></td>
+                            <td><button id="f" type="button" onclick="checkChar('f')">f</button></td>
+                        </tr>
+                        <tr>
+                            <td><button id="g" type="button" onclick="checkChar('g')">g</button></td>
+                            <td><button id="h" type="button" onclick="checkChar('h')">h</button></td>
+                            <td><button id="i" type="button" onclick="checkChar('i')">i</button></td>
+                            <td><button id="j" type="button" onclick="checkChar('j')">j</button></td>
+                            <td><button id="k" type="button" onclick="checkChar('k')">k</button></td>
+                            <td><button id="l" type="button" onclick="checkChar('l')">l</button></td>
+                        </tr>
+                        <tr>
+                            <td><button id="m" type="button" onclick="checkChar('m')">m</button></td>
+                            <td><button id="n" type="button" onclick="checkChar('n')">n</button></td>
+                            <td><button id="o" type="button" onclick="checkChar('o')">o</button></td>
+                            <td><button id="p" type="button" onclick="checkChar('p')">p</button></td>
+                            <td><button id="q" type="button" onclick="checkChar('q')">q</button></td>
+                            <td><button id="r" type="button" onclick="checkChar('r')">r</button></td>
+                        </tr>
+                        <tr>
+                            <td><button id="s" type="button" onclick="checkChar('s')">s</button></td>
+                            <td><button id="t" type="button" onclick="checkChar('t')">t</button></td>
+                            <td><button id="u" type="button" onclick="checkChar('u')">u</button></td>
+                            <td><button id="v" type="button" onclick="checkChar('v')">v</button></td>
+                            <td><button id="w" type="button" onclick="checkChar('w')">w</button></td>
+                            <td><button id="x" type="button" onclick="checkChar('x')">x</button></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td><button id="y" type="button" onclick="checkChar('y')">y</button></td>
+                            <td><button id="z" type="button" onclick="checkChar('z')">z</button></td>
+                            <td></td>
+                            <td></td>  
+                        </tr>
+                    </table>
+                </center>
+            </div>
+        </section>
+        <script src="data/wordlist.js" type="text/javascript"></script>
+        <script src="data/game.js" type="text/javascript"></script>
+    </body>
+</html>

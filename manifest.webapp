@@ -1,0 +1,17 @@
+﻿{
+  "name": "Gallows-Tree",
+  "description": "This is a simple for everyone with basic and popular enlish words.",
+  "launch_path": "/index.html",
+  "icons": {
+    "512": "/images/512/7.png",
+    "128": "/images/128/7.png",
+    "60": "/images/60.png",
+    "48": "/images/48.png",
+    "16": "/images/16.png"
+  },
+  "developer": {
+    "name": "Teudán Ádám Richárd",
+    "url": "https://github.com/J4vaH4ck"
+  },
+  "default_locale": "en"
+}

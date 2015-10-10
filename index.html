@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Gallows-Tree</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="style/action_menu.css" rel="stylesheet" type="text/css"/>
+        <style>
+            html, body {
+                font-size: xx-small;
+                font-family: sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #fff;
+            }
+            body {
+                background: none;
+            }
+        </style>
+        <script type="text/javascript">
+            function checkContinue() {
+                if (parseInt(localStorage.getItem("started")) == 0 || localStorage.getItem("started") == null)
+                    document.getElementById("continue").disabled = true;
+            }
+            function checkHScore() {
+                if (localStorage.getItem("hscore") != null) {
+                    document.getElementById("hscore").disabled = false;
+
+                } else
+                    document.getElementById("hscore").disabled = true;
+            }
+            function checkHScoreB() {
+                alert("your best score is: " + localStorage.getItem("hscore"));
+            }
+            function setContinue() {
+                if (localStorage.getItem("diff") == null)
+                    localStorage.setItem("diff", "2");
+                localStorage.setItem("started", parseInt(localStorage.getItem("started")) + 1);
+                document.getElementById("continue").disabled = false;
+            }
+        </script>
+    </head>
+    <body onload="checkContinue();
+            checkHScore();" role="application">
+        <form role="dialog" data-type="action">
+            <header>Menu</header>
+            <menu type="toolbar">
+                <button type="button" id="new" onclick="setContinue();
+                        window.location.href = 'NewGame.html'">New Game</button>
+                <button type="button" id="continue" onclick="window.location.href = 'ContinueGame.html'">Continue Game</button>
+                <button type="button" id="hscore" onclick="checkHScoreB()">Score</button>
+                <button type="button" onclick="alert('Name:\nTeudán Richárd\nE-mail:\nteudan.richard@gmail.com')">About Me</button>
+                <button type="button" onclick="window.close();">Exit</button>
+            </menu>
+        </form>
+    </body>
+</html>
