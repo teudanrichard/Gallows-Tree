@@ -1,6 +1,6 @@
 ﻿{
   "name": "Gallows-Tree",
-  "description": "This is a simple for everyone with basic and popular enlish words.",
+  "description": "This is a simple javascript based game.",
   "launch_path": "/index.html",
   "icons": {
     "512": "/images/512/7.png",
